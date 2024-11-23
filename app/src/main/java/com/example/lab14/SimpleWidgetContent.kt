@@ -1,4 +1,4 @@
-package com.example.lab14
+package com.josuerdx.lab14.widget.content
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -17,8 +17,11 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
+import com.example.lab14.HistoryActivity
+import com.example.lab14.MainActivity
 
 class SimpleWidgetContent : GlanceAppWidget() {
+
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         provideContent {
             GlanceTheme {
@@ -35,11 +38,15 @@ class SimpleWidgetContent : GlanceAppWidget() {
             verticalAlignment = Alignment.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "¿A dónde quieres dirigirte?", modifier = GlanceModifier.padding(12.dp))
+            Text(text = "¿A donde quieres dirigirte?", modifier = GlanceModifier.padding(12.dp))
             Row(horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(
                     text = "Página Principal",
                     onClick = actionStartActivity<MainActivity>()
+                )
+                Button(
+                    text = "Historial",
+                    onClick = actionStartActivity<HistoryActivity>() // Acción para ir al historial
                 )
             }
         }
